@@ -19,7 +19,7 @@ class Barrier:
 
 	def phase1(self):
 	self.mutex.wait()
-	self.count += 1
+	self.count ++
 	if self.count == self.n:
 		self.turnstile.signal(self.n)
 	self.mutex.signal()
@@ -27,7 +27,7 @@ class Barrier:
 
 	def phase2(self):
 	self.mutex.wait()
-	self.count -= 1
+	self.count --
 	if self.count == 0:
 		self.turnstile2.signal(self.n)
 	self.mutex.signal()

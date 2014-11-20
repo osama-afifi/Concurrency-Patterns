@@ -2,7 +2,8 @@
 #
 # Exclusive Concurrency Pattern
 #
-# We have two queues Leader & Followers and want both doSomething() together where each leader must have a corresponding follower
+# We have two queues Leader & Followers and want both doSomething() together where each leader must have an exclusive corresponding follower
+# We don't want followers or leaders queue up in this solution
 # This code is deadlock free if you can see anything else feel free to tell me
 
 mutex = Semaphore(1)
