@@ -4,16 +4,16 @@ class Lightswitch:
 		self.counter = 0
 		self.mutex = Semaphore(1)
 
-	def lock(self, semaphore):
+	def lock(self, mySem):
 		self.mutex.wait()
 		self.counter ++
 		if self.counter == 1:
-			semaphore.wait()
+			mySem.wait()
 		self.mutex.signal()
 
-	def unlock(self, semaphore):
+	def unlock(self, mySem):
 		self.mutex.wait()
 		self.counter --
 		if self.counter == 0:
-			semaphore.signal()
+			mySem.signal()
 		self.mutex.signal(
