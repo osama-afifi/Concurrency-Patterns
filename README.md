@@ -16,3 +16,4 @@ Concurrency-Patterns
 - Dining Philosopher Problem (Multiplex Solution)
 - Dining Philosopher Problem (Righties-Lefties Solution)
 - Dining Philosopher Problem (Tannenbaum's Solution)
+- Cigarettes Smoker Problem
