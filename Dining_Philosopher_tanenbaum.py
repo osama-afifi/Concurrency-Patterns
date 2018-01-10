@@ -42,20 +42,20 @@ def right(i):
 def get_forks(i):
 	mutex.wait()
 	philosopher_state[i] = 2 # set the current philosopher to hungry state
-	test(i)
+	testPhilosopher(i)
 	mutex.signal()
 	ready_to_eat[i].wait() # will pass only if it's semaphore is signalled stating that it's ready to eat
 
 def put_forks(i):
 	mutex.wait()
 	philosopher_state[i] = 1 # set the current philosopher back to thinking state
-	test(left(i))
-	test(right(i))
+	testPhilosopher(left(i))
+	testPhilosopher(right(i))
 	mutex.signal()
 		
 def testPhilosopher(i):
 	if philosopher_state[i] == 2 and # our current philosopher is hungry
-	if philosopher_state[left(i)] != 3 and 
-	if philosopher_state[right(i)] != 3 : # the adjacent philosophers are not eating (holding no forks i.e resources)
-		philosopher_state = 3 # set the current philosopher as eating
-		ready_to_eat[i].signal()
+	  philosopher_state[left(i)] != 3 and 
+	  philosopher_state[right(i)] != 3 : # the adjacent philosophers are not eating (holding no forks i.e resources)
+	    philosopher_state = 3 # set the current philosopher as eating
+	    ready_to_eat[i].signal()
