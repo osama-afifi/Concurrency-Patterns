@@ -8,9 +8,9 @@
 # This version offers a finite buffer with Max size specified in BUFFER_LIMIT
 # This code is deadlock free if you can see anything else feel free to tell me
 
-mutex = Sempahore(1)
-items = Semaphore(0)
-space = Semaphore(BUFFER_LIMIT)
+mutex = Sempahore(1) # The buffer mutex.
+items = Semaphore(0) # Block when buffer is empty (no items).
+space = Semaphore(BUFFER_LIMIT) # Available space sem with max number of BUFFER_LIMIT items in the buffer,
 
 def Producer:
 	while True:
